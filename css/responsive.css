@@ -180,8 +180,18 @@
     padding: 28px 22px;
   }
 
+  .article-hero,
+  .article-content {
+    padding: 28px 22px;
+  }
+
+  .article-hero h1,
   .article-placeholder h1 {
     font-size: 28px;
+  }
+
+  .article-content p {
+    font-size: 15px;
   }
 }
 

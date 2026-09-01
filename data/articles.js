@@ -1,15 +1,44 @@
 window.ImoBlogArticles = [
   {
     id: "mercado-imobiliario-luanda-2025",
-    title: "O Mercado Imobiliário de Luanda em 2025: Tendências e Oportunidades",
+    title: "O Mercado Imobiliário de Luanda em 2025",
     excerpt:
       "Análise das principais tendências que estão a moldar o sector imobiliário angolano, com foco nas zonas de maior transformação.",
     category: "Mercado",
     readingTime: "5 min de leitura",
+    date: "12 Ago 2025",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85",
     publishedAt: "2025-08-12",
     displayDate: "12 Ago 2025",
     imageClass: "image-market",
     featured: true,
+    content: [
+      {
+        type: "paragraph",
+        text: "Luanda continua a concentrar uma parte importante da procura imobiliária em Angola. Em 2025, o mercado mostra sinais de maior maturidade, com compradores, investidores e famílias a analisarem melhor localização, infraestrutura e potencial de valorização antes de tomar decisões.",
+      },
+      {
+        type: "heading",
+        text: "Zonas em transformação",
+      },
+      {
+        type: "paragraph",
+        text: "A expansão urbana tem levado mais atenção para zonas com novos acessos, serviços essenciais e projetos habitacionais em desenvolvimento. Estes fatores influenciam diretamente a perceção de valor e tornam algumas áreas mais interessantes para investimento de médio e longo prazo.",
+      },
+      {
+        type: "heading",
+        text: "Procura por informação clara",
+      },
+      {
+        type: "paragraph",
+        text: "O comprador atual procura mais transparência. Documentação, preço por zona, estado do imóvel e custos adicionais passaram a ter maior peso na decisão. Para quem vende, comunicar estes elementos com clareza pode aumentar a confiança e reduzir fricção no processo.",
+      },
+      {
+        type: "paragraph",
+        text: "Este artigo de demonstração serve para validar a arquitetura do ImoBLOG. Hoje os dados vêm de um ficheiro local; no futuro, a mesma interface poderá consumir uma API PHP/MySQL mantendo a lógica de renderização do frontend praticamente igual.",
+      },
+    ],
   },
   {
     id: "onde-investir-em-luanda",

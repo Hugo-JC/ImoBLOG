@@ -55,14 +55,33 @@
 
     <main class="article-page container" data-article-page>
       <article class="article-shell">
-        <div class="article-placeholder">
-          <span class="eyebrow" data-article-category>ImoBLOG</span>
+        <header class="article-hero">
+          <a class="article-back-link" href="../index.html#artigos">Voltar aos artigos</a>
+          <div class="article-meta">
+            <span class="category" data-article-category>ImoBLOG</span>
+            <span data-article-reading-time>Leitura</span>
+            <span data-article-date>Data</span>
+          </div>
           <h1 data-article-title>Página de artigo em preparação</h1>
           <p data-article-summary>
             Esta base mantém a identidade visual do ImoBLOG e deixa a estrutura
             pronta para receber conteúdo dinâmico numa próxima etapa.
           </p>
-        </div>
+        </header>
+
+        <img
+          class="article-cover"
+          data-article-image
+          src=""
+          alt=""
+          hidden
+        />
+
+        <div class="article-content" data-article-content></div>
+
+        <p class="article-not-found" data-article-not-found hidden>
+          Não encontrámos este artigo. Volta à listagem e escolhe outro conteúdo.
+        </p>
       </article>
     </main>
 

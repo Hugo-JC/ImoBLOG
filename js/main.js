@@ -63,6 +63,9 @@
 
   document.querySelectorAll(".read-link").forEach((link) => {
     link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+      if (href && href !== "#") return;
+
       event.preventDefault();
 
       const title =
