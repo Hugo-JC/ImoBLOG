@@ -1,0 +1,29 @@
+.article-page {
+  padding-block: 70px 90px;
+}
+
+.article-shell {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.article-placeholder {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 42px;
+  box-shadow: var(--shadow);
+}
+
+.article-placeholder h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  margin: 10px 0 14px;
+}
+
+.article-placeholder p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}

@@ -14,12 +14,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="#" aria-label="ImoBLOG">
+        <a class="brand" href="#inicio" aria-label="ImoBLOG">
           <span class="brand-mark">I</span>
           <span>Imo<span>BLOG.</span></span>
         </a>
@@ -31,41 +32,47 @@
           <a href="#sobre">Sobre</a>
         </nav>
 
-        <!-- <button
-          class="search-trigger"
-          id="openSearch"
-          aria-label="Pesquisar artigos"
-        >
-          <span>Pesquisar</span>
-          <kbd>⌘ K</kbd>
-        </button> -->
-
         <button
           class="menu-toggle"
           id="menuToggle"
+          type="button"
           aria-label="Abrir menu"
           aria-expanded="false"
+          aria-controls="mobileNav"
         >
           <span></span><span></span><span></span>
         </button>
       </div>
-      <div class="mobile-nav" id="mobileNav">
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
         <a href="#inicio">Início</a>
         <a href="#artigos">Blog</a>
-        <a href="#categorias">Podcasts</a>
+        <a href="#categorias">Categorias</a>
         <a href="#sobre">Sobre</a>
-      </div>
+        <button
+          class="mobile-search-trigger"
+          id="openSearchMobile"
+          type="button"
+        >
+          Pesquisar artigos <span>Ctrl + K</span>
+        </button>
+      </nav>
     </header>
-    <!-- <section class="search-bar-section">
-      <button
-        class="search-trigger"
-        id="openSearch"
-        aria-label="Pesquisar artigos"
-      >
-        <span>Pesquisar</span>
-        <kbd>⌘ K</kbd>
-      </button>
-    </section> -->
+
+    <section class="search-bar-section">
+      <div class="container search-bar-wrap">
+        <button
+          class="search-trigger search-bar-trigger"
+          id="openSearchBar"
+          type="button"
+          aria-label="Pesquisar artigos"
+        >
+          <span>Pesquisar artigos...</span>
+          <kbd aria-hidden="true">Ctrl + K</kbd>
+        </button>
+      </div>
+    </section>
+
     <main id="inicio">
       <section class="featured container" aria-labelledby="featured-title">
         <div class="section-heading">
@@ -116,14 +123,26 @@
             <span class="eyebrow">Explorar</span>
             <h2 id="latest-title">Artigos recentes</h2>
           </div>
-          <div class="category-scroll" id="categorias">
-            <button class="filter active" data-filter="Todos">Todos</button>
-            <button class="filter" data-filter="Mercado">Mercado</button>
-            <button class="filter" data-filter="Investimento">
+          <div
+            class="category-scroll"
+            id="categorias"
+            aria-label="Filtrar por categoria"
+          >
+            <button class="filter active" type="button" data-filter="Todos">
+              Todos
+            </button>
+            <button class="filter" type="button" data-filter="Mercado">
+              Mercado
+            </button>
+            <button class="filter" type="button" data-filter="Investimento">
               Investimento
             </button>
-            <button class="filter" data-filter="Dicas">Dicas</button>
-            <button class="filter" data-filter="Legislação">Legislação</button>
+            <button class="filter" type="button" data-filter="Dicas">
+              Dicas
+            </button>
+            <button class="filter" type="button" data-filter="Legislação">
+              Legislação
+            </button>
           </div>
         </div>
 
@@ -132,7 +151,7 @@
             <a
               href="#"
               class="card-image image-investment"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: Onde investir em Luanda"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -154,7 +173,7 @@
             <a
               href="#"
               class="card-image image-home"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: Como preparar um imóvel para vender melhor"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -175,7 +194,7 @@
             <a
               href="#"
               class="card-image image-law"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: Documentos essenciais antes de comprar um imóvel"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -197,7 +216,7 @@
             <a
               href="#"
               class="card-image image-luanda"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: O crescimento urbano e o novo mapa de Luanda"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -219,7 +238,7 @@
             <a
               href="#"
               class="card-image image-rent"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: Comprar para arrendar"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -241,7 +260,7 @@
             <a
               href="#"
               class="card-image image-design"
-              aria-label="Abrir artigo"
+              aria-label="Abrir artigo: 5 detalhes que valorizam a apresentação de uma casa"
             ></a>
             <div class="card-body">
               <div class="article-meta">
@@ -280,8 +299,11 @@
           <div class="input-row">
             <input
               id="email"
+              name="email"
               type="email"
               placeholder="exemplo@email.com"
+              autocomplete="email"
+              inputmode="email"
               required
             />
             <button class="btn btn-primary" type="submit">Subscrever</button>
@@ -294,7 +316,7 @@
     <footer class="site-footer">
       <div class="container footer-top">
         <div>
-          <a class="brand footer-brand" href="#"
+          <a class="brand footer-brand" href="#inicio"
             ><span class="brand-mark">I</span
             ><span>Imo<span>BLOG</span></span></a
           >
@@ -312,17 +334,26 @@
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2025 ImoBLOG. Todos os direitos reservados.</span
-        ><span>Feito para uma experiência de leitura simples.</span>
+        <span>© 2025 ImoBLOG. Todos os direitos reservados.</span>
+        <span>Feito para uma experiência de leitura simples.</span>
       </div>
     </footer>
 
-    <dialog class="search-dialog" id="searchDialog">
-      <form method="dialog" class="search-box">
-        <button class="close-dialog" value="cancel" aria-label="Fechar">
+    <dialog
+      class="search-dialog"
+      id="searchDialog"
+      aria-labelledby="searchDialogTitle"
+    >
+      <form method="dialog" class="search-box" id="searchForm">
+        <button
+          class="close-dialog"
+          value="cancel"
+          type="submit"
+          aria-label="Fechar pesquisa"
+        >
           ×
         </button>
-        <span class="eyebrow">Pesquisar no ImoBLOG</span>
+        <span class="eyebrow" id="searchDialogTitle">Pesquisar no ImoBLOG</span>
         <input
           id="searchInput"
           type="search"
@@ -333,6 +364,8 @@
       </form>
     </dialog>
 
-    <script src="script.js"></script>
+    <script src="data/articles.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

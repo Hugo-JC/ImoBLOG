@@ -14,9 +14,26 @@ Landing page/blog editorial responsivo para a plataforma ImoWhite.
 ```text
 ImoBLOG/
 ├── index.html
-├── styles.css
-├── script.js
-└── assets/
+├── pages/
+│   └── article.html
+├── assets/
+│   ├── images/
+│   │   ├── articles/
+│   │   ├── authors/
+│   │   └── branding/
+│   └── icons/
+├── css/
+│   ├── main.css
+│   ├── article.css
+│   └── responsive.css
+├── js/
+│   ├── main.js
+│   ├── articles.js
+│   └── article.js
+├── data/
+│   └── articles.js
+├── README.md
+└── .gitignore
 ```
 
 ## Destaques
@@ -28,6 +45,7 @@ ImoBLOG/
 - Filtros por categoria e pesquisa com JavaScript.
 - Responsivo para desktop, tablet e mobile.
 - Sem frameworks ou dependências de build.
+- Dados dos artigos centralizados em `data/articles.js`, preparados para uma futura API PHP/MySQL.
 
 ## Como executar
 

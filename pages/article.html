@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Base da página de artigo do ImoBLOG, preparada para receber conteúdo editorial."
+    />
+    <title>Artigo — ImoBLOG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../index.html#inicio" aria-label="ImoBLOG">
+          <span class="brand-mark">I</span>
+          <span>Imo<span>BLOG.</span></span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="../index.html#inicio">Início</a>
+          <a href="../index.html#artigos">Artigos</a>
+          <a href="../index.html#categorias">Categorias</a>
+          <a href="../index.html#sobre">Sobre</a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#artigos">Blog</a>
+        <a href="../index.html#categorias">Categorias</a>
+        <a href="../index.html#sobre">Sobre</a>
+      </nav>
+    </header>
+
+    <main class="article-page container" data-article-page>
+      <article class="article-shell">
+        <div class="article-placeholder">
+          <span class="eyebrow" data-article-category>ImoBLOG</span>
+          <h1 data-article-title>Página de artigo em preparação</h1>
+          <p data-article-summary>
+            Esta base mantém a identidade visual do ImoBLOG e deixa a estrutura
+            pronta para receber conteúdo dinâmico numa próxima etapa.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <script src="../data/articles.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/article.js"></script>
+  </body>
+</html>
