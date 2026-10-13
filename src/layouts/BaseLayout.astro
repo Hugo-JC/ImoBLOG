@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+const { title = 'ImoBlog — Educação imobiliária para todos', description = 'Ideias claras para decisões imobiliárias mais confiantes.' } = Astro.props;
+---
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f9fd" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('imoblog-theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+        } catch { document.documentElement.dataset.theme = 'light'; }
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-theme-toggle]');
+        if (!button) return;
+        const root = document.documentElement;
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('imoblog-theme', next); } catch {}
+        button.setAttribute('aria-label', next === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
+        button.innerHTML = next === 'dark' ? '☼' : '◐';
+      });
+      const menuButton = document.querySelector('[data-menu-toggle]');
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      menuButton?.addEventListener('click', () => {
+        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu?.toggleAttribute('hidden', expanded);
+      });
+      document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const message = form.querySelector('[data-form-message]');
+          if (!input?.checkValidity()) { input?.reportValidity(); return; }
+          message.textContent = 'Obrigado! Esta demonstração não envia emails ainda.';
+          message.hidden = false;
+          input.value = '';
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.env*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store

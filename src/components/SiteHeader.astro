@@ -1,0 +1,45 @@
+---
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container-wide header-inner">
+    <a class="brand" href="/" aria-label="ImoBlog — página inicial">
+      <span class="brand-mark">i<span>.</span></span>
+      <span class="brand-name">imo<span>blog</span><small>EDUCAÇÃO IMOBILIÁRIA</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a class:list={[{ active: path === '/' }]} href="/">Artigos</a>
+      <a href="/#temas">Temas</a>
+      <a href="/sobre">Sobre nós</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Alternar tema" title="Alternar tema">◐</button>
+      <a class="header-cta" href="/#newsletter">Subscrever <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="mobile-menu" data-mobile-menu hidden aria-label="Navegação móvel">
+    <a href="/">Artigos</a><a href="/#temas">Temas</a><a href="/sobre">Sobre nós</a><a href="/#newsletter">Subscrever</a>
+  </nav>
+</header>
+<style>
+.site-header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(18px); border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent); }
+.header-inner { height: 82px; display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+.brand { display:flex; align-items:center; gap:.65rem; min-width: 190px; }
+.brand-mark { width:42px; height:42px; display:grid; place-items:center; border-radius:14px; color:white; background:var(--brand); font-size:1.65rem; font-weight:800; letter-spacing:-.1em; padding-right:4px; }
+.brand-mark span { color:#a9c7ff; }
+.brand-name { font-size:1.1rem; font-weight:800; letter-spacing:-.07em; line-height:1; }
+.brand-name > span { color:var(--brand); }
+.brand-name small { display:block; margin-top:5px; font-size:.48rem; letter-spacing:.12em; color:var(--muted); font-weight:800; }
+.desktop-nav { display:flex; align-items:center; gap:2.2rem; margin-left:auto; }
+.desktop-nav a { color:var(--muted); font-size:.84rem; font-weight:700; transition:color .2s; }
+.desktop-nav a:hover,.desktop-nav a.active { color:var(--text); }
+.header-actions { display:flex; align-items:center; gap:.75rem; }
+.theme-toggle,.menu-toggle { width:42px; height:42px; display:grid; place-items:center; border:1px solid var(--line); background:var(--surface); color:var(--text); border-radius:12px; font-size:1.1rem; }
+.header-cta { display:flex; gap:.5rem; align-items:center; background:var(--text); color:var(--bg); padding:.8rem 1rem; border-radius:12px; font-size:.82rem; font-weight:800; }
+.header-cta span { color:var(--brand); }
+.menu-toggle { display:none; }
+.mobile-menu { padding:0 24px 20px; background:var(--bg); }
+.mobile-menu a { display:block; padding:13px 0; color:var(--muted); font-size:.9rem; font-weight:700; border-top:1px solid var(--line); }
+@media(max-width:760px) { .header-inner{height:72px}.desktop-nav{display:none}.header-cta{display:none}.menu-toggle{display:grid}.brand{min-width:0} }
+</style>

@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="container-wide footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="/"><span class="brand-mark">i<span>.</span></span><span class="brand-name">imo<span>blog</span><small>EDUCAÇÃO IMOBILIÁRIA</small></span></a>
+      <p>Informação clara para decisões imobiliárias mais conscientes.</p>
+    </div>
+    <div class="footer-links"><strong>Explorar</strong><a href="/">Artigos</a><a href="/#temas">Temas</a><a href="/sobre">Sobre nós</a></div>
+    <div class="footer-links"><strong>Informação</strong><a href="/privacidade">Privacidade</a><a href="/termos">Termos de utilização</a><a href="/#newsletter">Newsletter</a></div>
+    <div class="footer-note"><span class="eyebrow">Aprender muda tudo</span><p>O mercado imobiliário não precisa de ser complicado. Começa por fazer as perguntas certas.</p></div>
+  </div>
+  <div class="container-wide footer-bottom"><span>© {new Date().getFullYear()} ImoBlog. Todos os direitos reservados.</span><span>Feito para decisões com mais confiança <span aria-hidden="true">↗</span></span></div>
+</footer>
+<style>
+.site-footer { margin-top:100px; background:var(--surface); border-top:1px solid var(--line); }
+.footer-top { display:grid; grid-template-columns:1.3fr .7fr .8fr 1.1fr; gap:3rem; padding:58px 0 48px; }
+.footer-brand p,.footer-note p { color:var(--muted); font-size:.85rem; line-height:1.8; max-width:270px; }
+.footer-links { display:flex; flex-direction:column; gap:.85rem; font-size:.82rem; color:var(--muted); }
+.footer-links strong { color:var(--text); margin-bottom:.3rem; }
+.footer-links a:hover { color:var(--brand); }
+.footer-note { padding-left:1.5rem; border-left:1px solid var(--line); }
+.footer-bottom { border-top:1px solid var(--line); min-height:65px; display:flex; justify-content:space-between; align-items:center; gap:1rem; color:var(--muted); font-size:.72rem; }
+.footer-bottom span span { color:var(--brand); }
+@media(max-width:800px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}.footer-note{padding-left:0;border-left:0}.footer-bottom{align-items:flex-start;justify-content:center;flex-direction:column;padding:18px 0}}
+@media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+</style>
