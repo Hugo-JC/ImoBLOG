@@ -2,38 +2,181 @@
   <div class="container-wide newsletter-card">
     <div class="newsletter-copy">
       <span class="eyebrow">Uma boa decisão começa com informação</span>
-      <h2>Menos dúvidas.<br/><span>Mais confiança.</span></h2>
-      <p>Recebe ideias práticas sobre o mercado imobiliário, explicadas sem complicações. Uma mensagem de cada vez.</p>
+      <h2>Menos dúvidas.<br /><span>Mais confiança.</span></h2>
+      <p>
+        Recebe ideias práticas sobre o mercado imobiliário, explicadas sem
+        complicações. Uma mensagem de cada vez.
+      </p>
     </div>
     <form class="newsletter-form" data-newsletter-form>
       <label for="newsletter-email">O teu melhor email</label>
-      <div class="email-row"><input id="newsletter-email" type="email" placeholder="nome@email.com" required autocomplete="email"/><button type="submit" aria-label="Subscrever newsletter">Subscrever <span aria-hidden="true">↗</span></button></div>
+      <div class="email-row">
+        <input
+          id="newsletter-email"
+          type="email"
+          placeholder="nome@email.com"
+          required
+          autocomplete="email"
+        /><button type="submit" aria-label="Subscrever newsletter"
+          >Subscrever <span aria-hidden="true">↗</span></button>
+      </div>
       <p class="privacy-note">Sem spam. Podes cancelar quando quiseres.</p>
       <p class="form-message" data-form-message hidden role="status"></p>
     </form>
-    <div class="newsletter-decoration" aria-hidden="true"><span>i.</span><i></i><b></b></div>
+    <div class="newsletter-decoration" aria-hidden="true">
+      <span>i.</span><i></i><b></b>
+    </div>
   </div>
 </section>
 <style>
-.newsletter-section { margin-top:100px; }
-.newsletter-card { position:relative; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:clamp(28px,5vw,62px); background:var(--tint); border:1px solid color-mix(in srgb,var(--brand) 16%,var(--line)); border-radius:28px; }
-.newsletter-copy,.newsletter-form { position:relative; z-index:1; }
-.newsletter-copy h2 { font-size:clamp(2rem,4vw,3.5rem); line-height:1.03; letter-spacing:-.07em; font-weight:800; margin:1.15rem 0; }
-.newsletter-copy h2 span { color:var(--brand); }
-.newsletter-copy p { color:var(--muted); line-height:1.8; max-width:440px; font-size:.9rem; }
-.newsletter-form label { display:block; font-size:.8rem; font-weight:800; margin-bottom:.7rem; }
-.email-row { display:flex; gap:.5rem; padding:.4rem; background:var(--surface); border:1px solid var(--line); border-radius:15px; box-shadow:0 10px 30px rgba(19,45,95,.06); }
-.email-row input { min-width:0; flex:1; border:0; outline:0; background:transparent; color:var(--text); padding:0 .7rem; font-size:.82rem; }
-.email-row button { border:0; border-radius:10px; background:var(--brand); color:white; font-weight:800; font-size:.8rem; padding:.9rem 1rem; white-space:nowrap; }
-:root[data-theme="dark"] .email-row button { color:#07142b; }
-.privacy-note,.form-message { color:var(--muted); font-size:.72rem; margin-top:.8rem; }
-.form-message { color:var(--brand); font-weight:700; }
-.newsletter-decoration { position:absolute; width:270px;height:270px;right:-115px;top:-130px;border:1px solid color-mix(in srgb,var(--brand) 22%,transparent);border-radius:50%; }
-.newsletter-decoration::before,.newsletter-decoration::after { content:"";position:absolute;border:1px solid color-mix(in srgb,var(--brand) 22%,transparent);border-radius:50%;inset:25px; }
-.newsletter-decoration::after { inset:52px; }
-.newsletter-decoration span { position:absolute;right:70px;bottom:18px;font-size:4rem;font-weight:800;letter-spacing:-.12em;color:color-mix(in srgb,var(--brand) 16%,transparent); }
-.newsletter-decoration i,.newsletter-decoration b { position:absolute;width:9px;height:9px;background:var(--brand);border-radius:50%;top:60px;left:35px; }
-.newsletter-decoration b { width:6px;height:6px;top:120px;left:10px;opacity:.45; }
-@media(max-width:760px){.newsletter-card{grid-template-columns:1fr;gap:1.6rem}.newsletter-decoration{right:-170px}}
-@media(max-width:430px){.email-row{flex-direction:column}.email-row input{min-height:44px}.email-row button{justify-content:center}}
+  .newsletter-section {
+    margin-top: 100px;
+  }
+  .newsletter-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: clamp(28px, 5vw, 62px);
+    background: var(--tint);
+    border: 1px solid color-mix(in srgb, var(--brand) 16%, var(--line));
+    border-radius: 28px;
+  }
+  .newsletter-copy,
+  .newsletter-form {
+    position: relative;
+    z-index: 1;
+  }
+  .newsletter-copy h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.07em;
+    font-weight: 800;
+    margin: 1.15rem 0;
+  }
+  .newsletter-copy h2 span {
+    color: var(--brand);
+  }
+  .newsletter-copy p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 440px;
+    font-size: 0.9rem;
+  }
+  .newsletter-form label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 0.7rem;
+  }
+  .email-row {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(19, 45, 95, 0.06);
+  }
+  .email-row input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    padding: 0 0.7rem;
+    font-size: 0.82rem;
+  }
+  .email-row button {
+    border: 0;
+    border-radius: 10px;
+    background: var(--brand);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.9rem 1rem;
+    white-space: nowrap;
+  }
+  :root[data-theme="dark"] .email-row button {
+    color: #07142b;
+  }
+  .privacy-note,
+  .form-message {
+    color: var(--muted);
+    font-size: 0.72rem;
+    margin-top: 0.8rem;
+  }
+  .form-message {
+    color: var(--brand);
+    font-weight: 700;
+  }
+  .newsletter-decoration {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    right: -115px;
+    top: -130px;
+    border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+    border-radius: 50%;
+  }
+  .newsletter-decoration::before,
+  .newsletter-decoration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+    border-radius: 50%;
+    inset: 25px;
+  }
+  .newsletter-decoration::after {
+    inset: 52px;
+  }
+  .newsletter-decoration span {
+    position: absolute;
+    right: 70px;
+    bottom: 18px;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.12em;
+    color: color-mix(in srgb, var(--brand) 16%, transparent);
+  }
+  .newsletter-decoration i,
+  .newsletter-decoration b {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--brand);
+    border-radius: 50%;
+    top: 60px;
+    left: 35px;
+  }
+  .newsletter-decoration b {
+    width: 6px;
+    height: 6px;
+    top: 120px;
+    left: 10px;
+    opacity: 0.45;
+  }
+  @media (max-width: 760px) {
+    .newsletter-card {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+    .newsletter-decoration {
+      right: -170px;
+    }
+  }
+  @media (max-width: 430px) {
+    .email-row {
+      flex-direction: column;
+    }
+    .email-row input {
+      min-height: 44px;
+    }
+    .email-row button {
+      justify-content: center;
+    }
+  }
 </style>

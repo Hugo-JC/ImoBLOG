@@ -1,17 +1,19 @@
 ---
-import Logo from './Logo.astro';
+import Logo from "./Logo.astro";
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const links = [
-  { href: '/', label: 'Artigos' },
-  { href: '/#temas', label: 'Temas' },
-  { href: '/sobre', label: 'Sobre nós' },
+  { href: "/", label: "Artigos" },
+  { href: "/#temas", label: "Temas" },
+  { href: "/sobre", label: "Sobre nós" },
 ].map((link) => ({ ...link, current: link.href === path }));
 ---
+
 <a
   href="#main"
   class="fixed left-4 top-4 z-50 -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-page transition-transform focus:translate-y-0"
->Saltar para o conteúdo</a>
+  >Saltar para o conteúdo</a
+>
 
 <header data-site-header class="sticky top-0 z-40 pt-3">
   <div class="container-wide">
@@ -19,17 +21,26 @@ const links = [
       class="relative rounded-[28px] border border-line bg-surface/80 shadow-[0_10px_30px_-18px_rgb(45_60_103/0.25)] backdrop-blur-xl transition-[box-shadow,background-color] duration-300 data-scrolled:bg-surface/95 data-scrolled:shadow-[0_22px_44px_-20px_rgb(45_60_103/0.4)]"
       data-header-card
     >
-      <div class="flex h-16 items-center justify-between gap-4 pl-4 pr-2.5 md:pl-5">
+      <div
+        class="flex h-16 items-center justify-between gap-4 pl-4 pr-2.5 md:pl-5"
+      >
         <Logo />
 
-        <nav class="hidden items-center gap-1 rounded-full bg-tint/70 p-1 md:flex" aria-label="Navegação principal">
-          {links.map((link) => (
-            <a
-              href={link.href}
-              aria-current={link.current ? 'page' : undefined}
-              class="inline-flex h-10 items-center rounded-full px-4 text-sm font-bold text-muted transition-colors hover:bg-surface/70 hover:text-ink aria-[current=page]:bg-surface aria-[current=page]:text-ink aria-[current=page]:shadow-sm"
-            >{link.label}</a>
-          ))}
+        <nav
+          class="hidden items-center gap-1 rounded-full bg-tint/70 p-1 md:flex"
+          aria-label="Navegação principal"
+        >
+          {
+            links.map((link) => (
+              <a
+                href={link.href}
+                aria-current={link.current ? "page" : undefined}
+                class="inline-flex h-10 items-center rounded-full px-4 text-sm font-bold text-muted transition-colors hover:bg-surface/70 hover:text-ink aria-[current=page]:bg-surface aria-[current=page]:text-ink aria-[current=page]:shadow-sm"
+              >
+                {link.label}
+              </a>
+            ))
+          }
         </nav>
 
         <div class="flex items-center gap-2">
@@ -40,8 +51,30 @@ const links = [
             title="Alternar tema"
             class="grid size-11 place-items-center rounded-full border border-line bg-surface text-ink transition-colors hover:border-brand hover:text-brand"
           >
-            <svg class="size-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
-            <svg class="hidden size-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+            <svg
+              class="size-5 dark:hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg
+            >
+            <svg
+              class="hidden size-5 dark:block"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="12" cy="12" r="4"></circle><path
+                d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              ></path></svg
+            >
           </button>
 
           <a
@@ -49,7 +82,16 @@ const links = [
             class="group hidden h-11 items-center gap-2 rounded-full bg-brand px-5 text-sm font-extrabold text-white transition hover:bg-brand-hover motion-safe:hover:-translate-y-0.5 md:inline-flex dark:text-page dark:hover:text-page"
           >
             Subscrever
-            <svg class="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7" /></svg>
+            <svg
+              class="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"></path></svg
+            >
           </a>
 
           <button
@@ -60,8 +102,24 @@ const links = [
             aria-label="Menu"
             class="group grid size-11 place-items-center rounded-full border border-line bg-surface text-ink md:hidden"
           >
-            <svg class="size-5 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-            <svg class="hidden size-5 group-aria-expanded:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+            <svg
+              class="size-5 group-aria-expanded:hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg
+            >
+            <svg
+              class="hidden size-5 group-aria-expanded:block"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg
+            >
           </button>
         </div>
       </div>
@@ -74,46 +132,66 @@ const links = [
         class="border-t border-line p-3 transition duration-200 starting:-translate-y-2 starting:opacity-0 md:hidden"
       >
         <ul class="m-0 flex list-none flex-col gap-1 p-0">
-          {links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                aria-current={link.current ? 'page' : undefined}
-                class="flex min-h-12 items-center justify-between rounded-2xl px-4 text-base font-bold text-muted transition-colors hover:bg-tint hover:text-ink aria-[current=page]:bg-tint aria-[current=page]:text-ink"
-              >{link.label}<span class="text-brand" aria-hidden="true">→</span></a>
-            </li>
-          ))}
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={link.current ? "page" : undefined}
+                  class="flex min-h-12 items-center justify-between rounded-2xl px-4 text-base font-bold text-muted transition-colors hover:bg-tint hover:text-ink aria-[current=page]:bg-tint aria-[current=page]:text-ink"
+                >
+                  {link.label}
+                  <span class="text-brand" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </li>
+            ))
+          }
         </ul>
-        <a href="/#newsletter" class="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand px-5 text-sm font-extrabold text-white dark:text-page">Subscrever</a>
+        <a
+          href="/#newsletter"
+          class="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand px-5 text-sm font-extrabold text-white dark:text-page"
+          >Subscrever</a
+        >
       </nav>
     </div>
   </div>
 </header>
 
 <script>
-  const card = document.querySelector<HTMLElement>('[data-header-card]');
-  const button = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
-  const panel = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const card = document.querySelector<HTMLElement>("[data-header-card]");
+  const button =
+    document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const panel = document.querySelector<HTMLElement>("[data-mobile-menu]");
 
-  const updateScrolled = () => card?.toggleAttribute('data-scrolled', window.scrollY > 8);
+  const updateScrolled = () =>
+    card?.toggleAttribute("data-scrolled", window.scrollY > 8);
   updateScrolled();
-  window.addEventListener('scroll', updateScrolled, { passive: true });
+  window.addEventListener("scroll", updateScrolled, { passive: true });
 
   const setOpen = (open: boolean) => {
-    button?.setAttribute('aria-expanded', String(open));
+    button?.setAttribute("aria-expanded", String(open));
     if (panel) panel.hidden = !open;
   };
-  button?.addEventListener('click', () => setOpen(button.getAttribute('aria-expanded') !== 'true'));
-  panel?.addEventListener('click', (event) => {
-    if ((event.target as HTMLElement).closest('a')) setOpen(false);
+  button?.addEventListener("click", () =>
+    setOpen(button.getAttribute("aria-expanded") !== "true"),
+  );
+  panel?.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).closest("a")) setOpen(false);
   });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && button?.getAttribute('aria-expanded') === 'true') {
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      button?.getAttribute("aria-expanded") === "true"
+    ) {
       setOpen(false);
       button.focus();
     }
   });
-  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
-    if (event.matches) setOpen(false);
-  });
+  window
+    .matchMedia("(min-width: 768px)")
+    .addEventListener("change", (event) => {
+      if (event.matches) setOpen(false);
+    });
 </script>

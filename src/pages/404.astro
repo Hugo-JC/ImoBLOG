@@ -1,13 +1,37 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 ---
+
 <BaseLayout title="Página não encontrada — ImoBlog">
   <SiteHeader />
-  <main class="container-wide not-found"><span class="eyebrow">Erro 404</span><h1>Esta página ficou<br/><span>por encontrar.</span></h1><p>Talvez o link esteja errado ou a página tenha mudado de lugar.</p><a class="button-primary" href="/">Voltar à página inicial ↗</a></main>
+  <main class="container-wide not-found">
+    <span class="eyebrow">Erro 404</span><h1>
+      Esta página ficou<br /><span>por encontrar.</span>
+    </h1><p>Talvez o link esteja errado ou a página tenha mudado de lugar.</p><a
+      class="button-primary"
+      href="/">Voltar à página inicial ↗</a>
+  </main>
   <SiteFooter />
 </BaseLayout>
 <style>
-.not-found{padding:110px 0;min-height:55vh}.not-found h1{font-size:clamp(3rem,7vw,5.5rem);line-height:1.02;letter-spacing:-.08em;margin:25px 0;font-weight:800}.not-found h1 span{color:var(--muted)}.not-found p{color:var(--muted);margin-bottom:28px}
+  .not-found {
+    padding: 110px 0;
+    min-height: 55vh;
+  }
+  .not-found h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.08em;
+    margin: 25px 0;
+    font-weight: 800;
+  }
+  .not-found h1 span {
+    color: var(--muted);
+  }
+  .not-found p {
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
 </style>

@@ -1,38 +1,347 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import SiteFooter from '../../components/SiteFooter.astro';
-import { articles } from '../../data/articles';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { articles } from "../../data/articles";
 export function getStaticPaths() {
-  return articles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
 }
 const { article } = Astro.props;
-const related = articles.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 2);
+const related = articles
+  .filter(
+    (item) => item.slug !== article.slug && item.category === article.category,
+  )
+  .slice(0, 2);
 ---
+
 <BaseLayout title={`${article.title} — ImoBlog`} description={article.excerpt}>
   <SiteHeader />
   <main class="container-wide article-page">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Início</a><span>/</span><a href="/#artigos">Artigos</a><span>/</span><span>{article.category}</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Início</a><span>/</span><a href="/#artigos">Artigos</a><span
+        >/</span
+      ><span>{article.category}</span>
+    </nav>
     <header class="article-header">
       <span class="article-category">{article.category}</span>
       <h1>{article.title}</h1>
       <p>{article.excerpt}</p>
-      <div class="article-byline"><span class="author-avatar">i.</span><span><b>{article.author}</b><small>Publicado em {new Date(article.date + 'T12:00:00').toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' })}</small></span><span class="read-time">◷ {article.readTime} min de leitura</span></div>
+      <div class="article-byline">
+        <span class="author-avatar">i.</span><span
+          ><b>{article.author}</b><small
+            >Publicado em {
+              new Date(article.date + "T12:00:00").toLocaleDateString("pt-PT", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            }</small
+          ></span
+        ><span class="read-time">◷ {article.readTime} min de leitura</span>
+      </div>
     </header>
-    <figure class="article-cover"><img src={article.image} alt={article.imageAlt} fetchpriority="high"/></figure>
+    <figure class="article-cover">
+      <img src={article.image} alt={article.imageAlt} fetchpriority="high" />
+    </figure>
     <div class="article-body-layout">
-      <aside class="article-aside"><span>NESTE ARTIGO</span><a href="#leitura">Leitura principal</a><a href="#fim">Em resumo</a><a href="/#artigos">Mais artigos <span>↗</span></a></aside>
+      <aside class="article-aside">
+        <span>NESTE ARTIGO</span><a href="#leitura">Leitura principal</a><a
+          href="#fim">Em resumo</a
+        ><a href="/#artigos">Mais artigos <span>↗</span></a>
+      </aside>
       <article id="leitura" class="prose-article">
         {article.body.map((paragraph) => <p>{paragraph}</p>)}
-        <div id="fim" class="article-takeaway"><span class="eyebrow">A ideia principal</span><p>Informa-te, compara as opções e procura apoio qualificado quando a decisão exigir conhecimento especializado.</p></div>
-        <p class="disclaimer">Conteúdo educativo e geral. Confirma sempre a legislação, as condições financeiras e as informações aplicáveis ao teu país e à tua situação.</p>
+        <div id="fim" class="article-takeaway">
+          <span class="eyebrow">A ideia principal</span><p>
+            Informa-te, compara as opções e procura apoio qualificado quando a
+            decisão exigir conhecimento especializado.
+          </p>
+        </div>
+        <p class="disclaimer">
+          Conteúdo educativo e geral. Confirma sempre a legislação, as condições
+          financeiras e as informações aplicáveis ao teu país e à tua situação.
+        </p>
         <a href="/#artigos" class="back-link">← Voltar a todos os artigos</a>
       </article>
     </div>
-    {related.length > 0 && <section class="related"><span class="eyebrow">Continua a explorar</span><h2>Mais sobre {article.category.toLowerCase()}</h2><div class="related-grid">{related.map((item) => <a href={`/artigos/${item.slug}`} class="related-card"><img src={item.image} alt="" loading="lazy"/><div><span>{item.category} · {item.readTime} min</span><h3>{item.title}</h3><b>Ler artigo ↗</b></div></a>)}</div></section>}
+    {
+      related.length > 0 && (
+        <section class="related">
+          <>
+            <span class="eyebrow">Continua a explorar</span>
+            <h2>Mais sobre {article.category.toLowerCase()}</h2>
+            <div class="related-grid">
+              {related.map((item) => (
+                <a href={`/artigos/${item.slug}`} class="related-card">
+                  <img src={item.image} alt="" loading="lazy" />
+                  <div>
+                    <span>
+                      {item.category} · {item.readTime} min
+                    </span>
+                    <h3>{item.title}</h3>
+                    <b>Ler artigo ↗</b>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        </section>
+      )
+    }
   </main>
   <SiteFooter />
 </BaseLayout>
 <style>
-.article-page{padding-top:35px}.breadcrumbs{display:flex;gap:.65rem;align-items:center;color:var(--muted);font-size:.72rem}.breadcrumbs a:hover{color:var(--brand)}.article-header{max-width:850px;margin:65px auto 35px;text-align:center}.article-category{display:inline-block;color:var(--brand);background:var(--tint);padding:.42rem .65rem;border-radius:7px;font-size:.68rem;font-weight:800}.article-header h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.04;letter-spacing:-.075em;margin:22px 0 18px;font-weight:800}.article-header>p{color:var(--muted);font-size:1.02rem;line-height:1.8;max-width:670px;margin:0 auto}.article-byline{display:flex;justify-content:center;align-items:center;gap:.7rem;margin-top:27px;text-align:left}.author-avatar{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:white;font-weight:800;font-size:1.15rem}.article-byline b,.article-byline small{display:block}.article-byline b{font-size:.74rem}.article-byline small{font-size:.66rem;color:var(--muted);margin-top:4px}.read-time{margin-left:1rem;padding-left:1rem;border-left:1px solid var(--line);font-size:.72rem;color:var(--muted)}.article-cover{height:clamp(260px,45vw,560px);overflow:hidden;border-radius:24px;margin:0;background:var(--soft)}.article-cover img{width:100%;height:100%;object-fit:cover}.article-body-layout{display:grid;grid-template-columns:190px minmax(0,720px);justify-content:center;gap:5rem;padding:65px 0}.article-aside{position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;gap:1rem;font-size:.75rem;color:var(--muted)}.article-aside>span{font-size:.63rem;letter-spacing:.12em;font-weight:800;color:var(--text);margin-bottom:.2rem}.article-aside a:hover{color:var(--brand)}.article-aside a:last-child{color:var(--brand);font-weight:800}.prose-article{font-size:1rem;line-height:2;color:var(--text)}.prose-article>p{margin:0 0 1.5rem}.article-takeaway{margin:2.3rem 0;padding:25px 28px;border-radius:16px;background:var(--tint);border-left:3px solid var(--brand)}.article-takeaway p{font-size:1.05rem;line-height:1.75;font-weight:700;margin:.8rem 0 0;letter-spacing:-.02em}.disclaimer{padding-top:1rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);line-height:1.8}.back-link{display:inline-flex;margin-top:1rem;color:var(--brand);font-size:.8rem;font-weight:800}.related{border-top:1px solid var(--line);padding-top:45px}.related h2{font-size:1.7rem;letter-spacing:-.05em;margin:12px 0 25px}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.related-card{display:grid;grid-template-columns:130px 1fr;gap:17px;align-items:center;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px;transition:transform .2s}.related-card:hover{transform:translateY(-3px)}.related-card img{width:130px;height:110px;object-fit:cover;border-radius:10px}.related-card span{font-size:.64rem;color:var(--muted)}.related-card h3{font-size:.87rem;line-height:1.5;margin:8px 0}.related-card b{font-size:.68rem;color:var(--brand)}@media(max-width:760px){.article-header{margin:45px auto 28px}.article-body-layout{grid-template-columns:1fr;gap:1rem;padding:35px 0}.article-aside{position:static;flex-direction:row;flex-wrap:wrap;padding:15px 0;border-bottom:1px solid var(--line)}.article-aside>span{width:100%}.related-grid{grid-template-columns:1fr}}@media(max-width:480px){.article-header h1{font-size:2.5rem}.article-byline{flex-wrap:wrap}.read-time{margin-left:0}.article-cover{border-radius:16px}.related-card{grid-template-columns:100px 1fr}.related-card img{width:100px;height:105px}}
+  .article-page {
+    padding-top: 35px;
+  }
+  .breadcrumbs {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    color: var(--muted);
+    font-size: 0.72rem;
+  }
+  .breadcrumbs a:hover {
+    color: var(--brand);
+  }
+  .article-header {
+    max-width: 850px;
+    margin: 65px auto 35px;
+    text-align: center;
+  }
+  .article-category {
+    display: inline-block;
+    color: var(--brand);
+    background: var(--tint);
+    padding: 0.42rem 0.65rem;
+    border-radius: 7px;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+  .article-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4.7rem);
+    line-height: 1.04;
+    letter-spacing: -0.075em;
+    margin: 22px 0 18px;
+    font-weight: 800;
+  }
+  .article-header > p {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    max-width: 670px;
+    margin: 0 auto;
+  }
+  .article-byline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 27px;
+    text-align: left;
+  }
+  .author-avatar {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--brand);
+    color: white;
+    font-weight: 800;
+    font-size: 1.15rem;
+  }
+  .article-byline b,
+  .article-byline small {
+    display: block;
+  }
+  .article-byline b {
+    font-size: 0.74rem;
+  }
+  .article-byline small {
+    font-size: 0.66rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .read-time {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--line);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .article-cover {
+    height: clamp(260px, 45vw, 560px);
+    overflow: hidden;
+    border-radius: 24px;
+    margin: 0;
+    background: var(--soft);
+  }
+  .article-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .article-body-layout {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 720px);
+    justify-content: center;
+    gap: 5rem;
+    padding: 65px 0;
+  }
+  .article-aside {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .article-aside > span {
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .article-aside a:hover {
+    color: var(--brand);
+  }
+  .article-aside a:last-child {
+    color: var(--brand);
+    font-weight: 800;
+  }
+  .prose-article {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--text);
+  }
+  .prose-article > p {
+    margin: 0 0 1.5rem;
+  }
+  .article-takeaway {
+    margin: 2.3rem 0;
+    padding: 25px 28px;
+    border-radius: 16px;
+    background: var(--tint);
+    border-left: 3px solid var(--brand);
+  }
+  .article-takeaway p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    font-weight: 700;
+    margin: 0.8rem 0 0;
+    letter-spacing: -0.02em;
+  }
+  .disclaimer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .back-link {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--brand);
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .related {
+    border-top: 1px solid var(--line);
+    padding-top: 45px;
+  }
+  .related h2 {
+    font-size: 1.7rem;
+    letter-spacing: -0.05em;
+    margin: 12px 0 25px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .related-card {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 17px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    padding: 12px;
+    transition: transform 0.2s;
+  }
+  .related-card:hover {
+    transform: translateY(-3px);
+  }
+  .related-card img {
+    width: 130px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .related-card span {
+    font-size: 0.64rem;
+    color: var(--muted);
+  }
+  .related-card h3 {
+    font-size: 0.87rem;
+    line-height: 1.5;
+    margin: 8px 0;
+  }
+  .related-card b {
+    font-size: 0.68rem;
+    color: var(--brand);
+  }
+  @media (max-width: 760px) {
+    .article-header {
+      margin: 45px auto 28px;
+    }
+    .article-body-layout {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 35px 0;
+    }
+    .article-aside {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .article-aside > span {
+      width: 100%;
+    }
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .article-header h1 {
+      font-size: 2.5rem;
+    }
+    .article-byline {
+      flex-wrap: wrap;
+    }
+    .read-time {
+      margin-left: 0;
+    }
+    .article-cover {
+      border-radius: 16px;
+    }
+    .related-card {
+      grid-template-columns: 100px 1fr;
+    }
+    .related-card img {
+      width: 100px;
+      height: 105px;
+    }
+  }
 </style>

@@ -1,7 +1,11 @@
 ---
-import '../styles/global.css';
-const { title = 'ImoBlog — Educação imobiliária para todos', description = 'Ideias claras para decisões imobiliárias mais confiantes.' } = Astro.props;
+import "../styles/global.css";
+const {
+  title = "ImoBlog — Educação imobiliária para todos",
+  description = "Ideias claras para decisões imobiliárias mais confiantes.",
+} = Astro.props;
 ---
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -15,34 +19,48 @@ const { title = 'ImoBlog — Educação imobiliária para todos', description = 
     <script is:inline>
       (() => {
         try {
-          const saved = localStorage.getItem('imoblog-theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
-        } catch { document.documentElement.dataset.theme = 'light'; }
+          const saved = localStorage.getItem("imoblog-theme");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          document.documentElement.dataset.theme =
+            saved || (prefersDark ? "dark" : "light");
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
       })();
     </script>
   </head>
   <body>
     <slot />
     <script is:inline>
-      document.addEventListener('click', (event) => {
-        const button = event.target.closest('[data-theme-toggle]');
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-theme-toggle]");
         if (!button) return;
         const root = document.documentElement;
-        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
         root.dataset.theme = next;
-        try { localStorage.setItem('imoblog-theme', next); } catch {}
-        button.setAttribute('aria-label', next === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
+        try {
+          localStorage.setItem("imoblog-theme", next);
+        } catch {}
+        button.setAttribute(
+          "aria-label",
+          next === "dark" ? "Ativar tema claro" : "Ativar tema escuro",
+        );
       });
-      document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-        form.addEventListener('submit', (event) => {
+      document.querySelectorAll("[data-newsletter-form]").forEach((form) => {
+        form.addEventListener("submit", (event) => {
           event.preventDefault();
           const input = form.querySelector('input[type="email"]');
-          const message = form.querySelector('[data-form-message]');
-          if (!input?.checkValidity()) { input?.reportValidity(); return; }
-          message.textContent = 'Obrigado! Esta demonstração não envia emails ainda.';
+          const message = form.querySelector("[data-form-message]");
+          if (!input?.checkValidity()) {
+            input?.reportValidity();
+            return;
+          }
+          message.textContent =
+            "Obrigado! Esta demonstração não envia emails ainda.";
           message.hidden = false;
-          input.value = '';
+          input.value = "";
         });
       });
     </script>

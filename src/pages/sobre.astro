@@ -1,19 +1,103 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 ---
-<BaseLayout title="Sobre nós — ImoBlog" description="Conhece a missão do ImoBlog.">
+
+<BaseLayout
+  title="Sobre nós — ImoBlog"
+  description="Conhece a missão do ImoBlog."
+>
   <SiteHeader />
   <main class="container-wide about-page">
     <span class="eyebrow">Sobre o ImoBlog</span>
-    <h1>O imobiliário pode ser complexo.<br/><span>A informação não precisa de ser.</span></h1>
-    <p class="about-lead">O ImoBlog existe para tornar conceitos imobiliários mais acessíveis, com artigos claros, práticos e pensados para ajudar jovens e adultos a fazer melhores perguntas.</p>
-    <div class="about-panel"><span class="about-symbol">i.</span><div><h2>Aprender antes de decidir.</h2><p>Acreditamos que decisões importantes começam com informação compreensível. Exploramos temas como compra, arrendamento, investimento, crédito e legislação sem prometer respostas mágicas nem substituir aconselhamento especializado.</p></div></div>
+    <h1>
+      O imobiliário pode ser complexo.<br /><span
+        >A informação não precisa de ser.</span>
+    </h1>
+    <p class="about-lead">
+      O ImoBlog existe para tornar conceitos imobiliários mais acessíveis, com
+      artigos claros, práticos e pensados para ajudar jovens e adultos a fazer
+      melhores perguntas.
+    </p>
+    <div class="about-panel">
+      <span class="about-symbol">i.</span><div>
+        <h2>Aprender antes de decidir.</h2><p>
+          Acreditamos que decisões importantes começam com informação
+          compreensível. Exploramos temas como compra, arrendamento,
+          investimento, crédito e legislação sem prometer respostas mágicas nem
+          substituir aconselhamento especializado.
+        </p>
+      </div>
+    </div>
     <a class="button-primary" href="/#artigos">Explorar os artigos ↗</a>
   </main>
   <SiteFooter />
 </BaseLayout>
 <style>
-.about-page{padding-top:100px;min-height:55vh}.about-page h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.04;letter-spacing:-.08em;font-weight:800;margin:25px 0}.about-page h1 span{color:var(--muted)}.about-lead{max-width:720px;font-size:1.1rem;line-height:1.9;color:var(--muted)}.about-panel{display:flex;align-items:flex-start;gap:1.5rem;max-width:850px;margin:55px 0 30px;padding:32px;border:1px solid var(--line);border-radius:20px;background:var(--surface)}.about-symbol{display:grid;place-items:center;flex-shrink:0;width:55px;height:55px;background:var(--brand);color:white;border-radius:16px;font-size:2rem;font-weight:800;letter-spacing:-.1em;padding-right:4px}.about-panel h2{font-size:1.4rem;letter-spacing:-.05em;margin:0 0 10px}.about-panel p{color:var(--muted);font-size:.88rem;line-height:1.85;margin:0}@media(max-width:600px){.about-page{padding-top:65px}.about-panel{padding:22px;flex-direction:column}}
+  .about-page {
+    padding-top: 100px;
+    min-height: 55vh;
+  }
+  .about-page h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -0.08em;
+    font-weight: 800;
+    margin: 25px 0;
+  }
+  .about-page h1 span {
+    color: var(--muted);
+  }
+  .about-lead {
+    max-width: 720px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--muted);
+  }
+  .about-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 850px;
+    margin: 55px 0 30px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--surface);
+  }
+  .about-symbol {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    background: var(--brand);
+    color: white;
+    border-radius: 16px;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.1em;
+    padding-right: 4px;
+  }
+  .about-panel h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.05em;
+    margin: 0 0 10px;
+  }
+  .about-panel p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.85;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .about-page {
+      padding-top: 65px;
+    }
+    .about-panel {
+      padding: 22px;
+      flex-direction: column;
+    }
+  }
 </style>
