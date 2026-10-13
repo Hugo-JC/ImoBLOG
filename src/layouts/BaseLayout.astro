@@ -7,7 +7,9 @@ const { title = 'ImoBlog — Educação imobiliária para todos', description = 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f7f9fd" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f3fa" />
     <meta name="description" content={description} />
     <title>{title}</title>
     <script is:inline>
@@ -31,14 +33,6 @@ const { title = 'ImoBlog — Educação imobiliária para todos', description = 
         root.dataset.theme = next;
         try { localStorage.setItem('imoblog-theme', next); } catch {}
         button.setAttribute('aria-label', next === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
-        button.innerHTML = next === 'dark' ? '☼' : '◐';
-      });
-      const menuButton = document.querySelector('[data-menu-toggle]');
-      const mobileMenu = document.querySelector('[data-mobile-menu]');
-      menuButton?.addEventListener('click', () => {
-        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-        menuButton.setAttribute('aria-expanded', String(!expanded));
-        mobileMenu?.toggleAttribute('hidden', expanded);
       });
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {

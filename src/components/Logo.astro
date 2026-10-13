@@ -1,0 +1,16 @@
+---
+// tagline = true usa a versão com "EDUCAÇÃO IMOBILIÁRIA" (para o footer).
+const { tagline = false, class: className = '' } = Astro.props;
+const name = tagline ? 'imoblog-logo' : 'imoblog-wordmark';
+const size = tagline ? 'h-14' : 'h-10';
+---
+<a href="/" aria-label="ImoBlog — página inicial" class:list={['inline-flex shrink-0 items-center rounded-xl', className]}>
+  <!-- Tema claro -->
+  <span class="block dark:hidden">
+    <img src={`/logo/${name}.svg`} alt="ImoBlog" width="235" height="64" class={`${size} w-auto`} />
+  </span>
+  <!-- Tema escuro -->
+  <span class="hidden dark:block">
+    <img src={`/logo/${name}-dark.svg`} alt="" aria-hidden="true" width="235" height="64" class={`${size} w-auto`} />
+  </span>
+</a>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<title>ImoBlog</title>
+<defs><linearGradient id="gf" x1="8" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse"><stop stop-color="#496d9c"/><stop offset="1" stop-color="#2d3c67"/></linearGradient></defs>
+<rect width="64" height="64" rx="18" fill="url(#gf)"/>
+<path d="M15 30 32 15.5 49 30" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.5 28.5V46a3.5 3.5 0 0 0 3.5 3.5h16a3.5 3.5 0 0 0 3.5-3.5V28.5" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="33.2" r="2.7" fill="#a7b2e6"/>
+<rect x="29.9" y="38" width="4.2" height="8.4" rx="2.1" fill="#ffffff"/>
+</svg>
